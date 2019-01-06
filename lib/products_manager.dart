@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import './products.dart';
 import './products_control.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class ProductsManager extends StatefulWidget {
   final Map<String, String> initialProducts;
@@ -24,9 +25,14 @@ class _ProductsManagerState extends State<ProductsManager> {
     super.initState();
   }
 
-  void _addProducts(Map<String, String> products) {
+  void _addProducts(Map<String, String> products) async {
+    SharedPreferences sharedd = await SharedPreferences.getInstance();
+    Map<String, String> productsMap = {
+      'title': sharedd.getString('productTitle'),
+      'image': 'assets/flower.jpg'
+    };
     setState(() {
-      _products.add(products);
+      _products.add(productsMap);
     });
   }
 

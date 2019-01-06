@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
       home: AuthPage(),
       routes: {
         '/home': (BuildContext context) => HomePage(),
- '/admin': (BuildContext context) => ProductsAdmin()
+        '/admin': (BuildContext context) => ProductsAdmin()
       },
     ); // Core Route Widget
   }
